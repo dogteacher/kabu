@@ -28,4 +28,18 @@ class Array
 		indicator_array
 	end
 	
+	# 移動平均
+	def moving_average(span)
+		map_indicator(span) {|vals| vals.average}
+	end
+
+	# 区間高値
+	def highs(span)
+		map_indicator(span){ |vals| vals.max}
+	end
 	
+	#区間安値
+	def lows(span)
+		map_indicator(span){|vals| vals.min}
+	end
+end		
