@@ -11,4 +11,8 @@ class MovingAverage < Indicator
 		@price_at = params[:price_at] || :close
 	end
 
-	def calculat
+	def calculate_indicator
+		prices = @stock.send(@price_at.to_s + "_prices")
+		prices.moving_average(@span)
+	end
+end
